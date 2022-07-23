@@ -9,6 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using ProjetoCrud.Data;
 
 namespace ProjetoCrud
 {
@@ -33,6 +35,11 @@ namespace ProjetoCrud
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<ProjetoCrudContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("ProjetoCrudContext"), builder =>
+            builder.MigrationsAssembly("ProjetoCrud")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
