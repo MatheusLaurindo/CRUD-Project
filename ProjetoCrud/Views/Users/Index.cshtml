@@ -1,22 +1,28 @@
 ﻿@model IEnumerable<ProjetoCrud.Models.User>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Users";
 }
 
-<h2>Index</h2>
+<h2 style="color: #fff">@ViewData["Title"]</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
-            <th>
+        <tr style="background-color: #171717">
+            <th style="color: #fff">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th style="color: #fff">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            <th style="color: #fff">
                 @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="color: #fff">
+                @Html.DisplayNameFor(model => model.BirthDate)
             </th>
             <th></th>
         </tr>
@@ -24,11 +30,17 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td style="color: #fff">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td style="color: #fff">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td style="color: #fff">
                 @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td style="color: #fff">
+                @Html.DisplayFor(modelItem => item.BirthDate)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
